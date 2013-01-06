@@ -1,0 +1,15 @@
+<html>
+  <body>
+    <h1>Check the recommendation</h1>
+    <div>
+    <form method="POST" action="/analyzer/check">
+      User id: <input type="text" name="user_id" id="user_id" value="<%=@user_id %>" />
+      <input type="submit" value="check" />
+    </form>
+  </div>
+  <div>
+    <%= @user_items %>
+  </div>
+  </body>
+</html>
+
