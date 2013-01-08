@@ -6,26 +6,32 @@ class AnalyzerController < ApplicationController
   def check
     @user_id = params[:user_id]
 
-    client = RestClient.new
-    @buyed_items = Array.new
+    @known_items = Array.new
     @recommended_items = Array.new
 
-    user_items = UserItem.find(@user_id)
-    fill_items user_items, @buyed_items
+    user_items = UserItem.find(:all, :conditions => ["user_id = ?", @user_id])
+    fill_items user_items, @known_items
 
-    rec_items = RecommendedItem.find(@user_id, :order => "order")
+    rec_items = RecommendedItem.find(:all, :conditions => ["user_id = ?", @user_id], :order => "`order` ASC")
     fill_items rec_items, @recommended_items
+
   end
 
   def fill_items raw_items, complete_items
     raw_items.each do |entry|
-      item = Item.find(entry.item_id)
-      if item.category.empty?
-        item.category = client.get_genre item.title item.year
+      item = Item.find(:first, :conditions => ["item_id = ?", entry.item_id])
+      if item.category.nil?
+        item.category = get_genre item.title, item.extra_info
         item.save
       end
-      complete_items.add item
+      complete_items << item
     end
+  end
+
+  def get_genre title, year
+    response = RestClient.get "http://www.omdbapi.com", {:params => {:t => title, :y => year}}
+    data = JSON.parse(response)
+    data["Genre"]
   end
 
 end
