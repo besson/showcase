@@ -1,4 +1,4 @@
-class AnalyzerController < ApplicationController
+class MovieController < ApplicationController
 
   def index
   end
