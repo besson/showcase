@@ -24,6 +24,7 @@ class MovieController < ApplicationController
         item.category = get_genre item.title, item.extra_info
         item.save
       end
+      item.category = item.category.downcase
       complete_items << item
     end
   end
@@ -31,7 +32,13 @@ class MovieController < ApplicationController
   def get_genre title, year
     response = RestClient.get "http://www.omdbapi.com", {:params => {:t => title, :y => year}}
     data = JSON.parse(response)
-    data["Genre"]
+    category = data["Genre"]
+
+    if category.nil?
+      category = ""
+    end
+
+    category.downcase
   end
 
 end

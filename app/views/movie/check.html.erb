@@ -11,15 +11,15 @@
     <div style="float:left">
       <p><b>User items: </b></p>
       <% @known_items.each do |item| %>
-        title: <%= item.title %> (<%=item.extra_info %>) <br>
-        category: <%= item.category %> <br><br>
+        <p class="title"> title: <%= item.title %> (<%=item.extra_info %>) </p>
+        <p> category: <%= addClass item.category %> </p>
       <%end %>
     </div>
     <div style="float:right">
       <p><b>Recommended items: </b></p>
       <% @recommended_items.each do |item| %>
-        title: <%= item.title %> (<%=item.extra_info %>) <br>
-        category: <%= item.category %> <br><br>
+        <p class="title">title: <%= item.title %> (<%=item.extra_info %>) </p>
+        <p> category: <%= addClass item.category %> </p>
       <%end %>
     </div>
     </section>
