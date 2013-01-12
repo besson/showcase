@@ -1,0 +1,27 @@
+<html>
+  <body>
+    <h1>Check the recommendation</h1>
+    <div>
+      <form method="POST" action="/product/check">
+        User id: <input type="text" name="user_id" id="user_id" value="<%=@user_id %>" />
+        <input type="submit" value="check" />
+      </form>
+    </div>
+    <section style="width:850px">
+    <div style="float:left">
+      <p><b>User items: </b></p>
+      <% @known_items.each do |item| %>
+        title: <%= item.title %> <br>
+      <%end %>
+    </div>
+    <div style="float:right">
+      <p><b>Recommended items: </b></p>
+      <% @recommended_items.each do |item| %>
+        title: <%= item.title %> <br>
+      <%end %>
+    </div>
+    </section>
+
+  </body>
+</html>
+
