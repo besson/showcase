@@ -1,7 +1,7 @@
 class RecommendedItemsLoader
 
   def load
-    file_path = Rails.root.join("data","products", "results.txt").to_s
+    file_path = Rails.root.join("data","netflix", "results.txt").to_s
     file = File.open(file_path)
 
     file.each_line do |line|
