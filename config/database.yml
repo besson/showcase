@@ -5,7 +5,7 @@
 #   gem 'sqlite3'
 development:
   adapter: postgresql
-  encoding: unicode
+  encoding: utf8
   database: recommender_analyzer
   pool: 5
   username: besson
@@ -22,7 +22,7 @@ development:
 
 production:
   adapter: postgresql
-  encoding: unicode
+  encoding: utf8
   database: recommender_analyzer
   pool: 5
   username: besson
