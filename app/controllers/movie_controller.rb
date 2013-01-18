@@ -8,12 +8,16 @@ class MovieController < ApplicationController
 
     @known_items = Array.new
     @recommended_items = Array.new
+    @recommended_items_myrrix = Array.new
 
     user_items = UserItem.find(:all, :conditions => ["user_id = ?", @user_id])
     fill_items user_items, @known_items
 
     rec_items = RecommendedItem.find(:all, :conditions => ["user_id = ?", @user_id], :order => '"order" ASC')
     fill_items rec_items, @recommended_items
+
+    rec_items_myrrix = get_myrrix_recommendation @user_id
+    fill_items rec_items_myrrix, @recommended_items_myrrix
 
   end
 
@@ -31,16 +35,34 @@ class MovieController < ApplicationController
     end
   end
 
-    def get_genre title, year
-      response = RestClient.get "http://www.omdbapi.com", {:params => {:t => title, :y => year}}
-      data = JSON.parse(response)
-      category = data["Genre"]
+  def get_genre title, year
+    response = RestClient.get "http://www.omdbapi.com", {:params => {:t => title, :y => year}}
+    data = JSON.parse(response)
+    category = data["Genre"]
 
-      if category.nil?
-        category = ""
-      end
-
-      category.downcase
+    if category.nil?
+      category = ""
     end
 
+    category.downcase
   end
+
+  def get_myrrix_recommendation user_id
+    items_id = Array.new
+    items = Array.new
+
+    response = RestClient.get "http://localhost/recommend/#{user_id}"
+    data = JSON.parse(response)
+    data.each_with_index.map {|entry, i| items_id << entry[0] }
+
+    items_id.each do |i|
+      item = Item.find(:first, :conditions => ["item_id = ?", i])
+      if item != nil then
+        items << item
+      end
+    end
+
+    items
+  end
+
+end

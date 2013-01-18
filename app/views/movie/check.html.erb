@@ -7,21 +7,29 @@
         <input type="submit" value="check" />
       </form>
     </div>
-    <section style="width:850px">
-    <div style="float:left">
-      <p><b>User items: </b></p>
+    <section style="width:1050px">
+    <div style="float:left; width: 300px;">
+      <p class="tool-title">User items</p>
       <% @known_items.each do |item| %>
-        <p class="title"> title: <%= item.title %> (<%=item.extra_info %>) </p>
+        <p class="title"> <%= item.title %> (<%=item.extra_info %>) </p>
         <p> category: <%= addClass item.category %> </p>
       <%end %>
     </div>
-    <div style="float:right">
-      <p><b>Recommended items: </b></p>
+    <div style="float:left; width: 300px; margin-left: 25px;">
+      <p class="tool-title">Recommended items (mahout)</p>
       <% @recommended_items.each do |item| %>
-        <p class="title">title: <%= item.title %> (<%=item.extra_info %>) </p>
+        <p class="title"><%= item.title %> (<%=item.extra_info %>) </p>
         <p> category: <%= addClass item.category %> </p>
       <%end %>
     </div>
+    <div style="float:left; width: 300px; margin-left: 25px;">
+      <p class="tool-title">Recommended items (myrrix)</p>
+      <% @recommended_items_myrrix.each do |item| %>
+        <p class="title"><%= item.title %> (<%=item.extra_info %>) </p>
+        <p> category: <%= addClass item.category %> </p>
+      <%end %>
+    </div>
+
     </section>
 
   </body>
