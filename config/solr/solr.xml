@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<solr persistent="true">
+  <cores defaultCoreName="item" adminPath="/admin/cores" zkClientTimeout="${zkClientTimeout:15000}" hostPort="8983" hostContext="solr">
+    <core schema="schema.xml" shard="shard1" instanceDir="item/" name="item" config="solrconfig.xml" collection="item"/>
+    <core schema="schema.xml" shard="shard1" instanceDir="user-item/" name="user-item" config="solrconfig.xml" collection="user-item"/>
+  </cores>
+</solr>

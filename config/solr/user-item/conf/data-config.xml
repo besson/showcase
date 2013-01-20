@@ -1,0 +1,9 @@
+<dataConfig>
+  <dataSource type="JdbcDataSource" driver="org.sqlite.JDBC" url="jdbc:sqlite:/home/besson/dev/machine_learning/apps/recommender_analyser/db/netflix_analyzer.development.sqlite3" />
+    <document name="user-items">
+      <entity name="user-item" transformer="RegexTransformer" query="select item_id as id, group_concat(user_id) as user_ids from user_items group by item_id">
+        <field column="user_ids" splitBy="," sourceColName="user_ids" />
+      </entity>
+    </document>
+</dataConfig>
+

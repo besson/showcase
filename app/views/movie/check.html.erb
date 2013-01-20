@@ -23,8 +23,8 @@
       <%end %>
     </div>
     <div style="float:left; width: 300px; margin-left: 25px;">
-      <p class="tool-title">Recommended items (myrrix)</p>
-      <% @recommended_items_myrrix.each do |item| %>
+      <p class="tool-title">Recommended items (solr)</p>
+      <% @recommended_items_solr.each do |item| %>
         <p class="title"><%= item.title %> (<%=item.extra_info %>) </p>
         <p> category: <%= addClass item.category %> </p>
       <%end %>

@@ -1,0 +1,9 @@
+<dataConfig>
+  <dataSource type="JdbcDataSource" driver="org.sqlite.JDBC" url="jdbc:sqlite:/home/besson/dev/machine_learning/apps/recommender_analyser/db/netflix_analyzer.development.sqlite3" />
+    <document name="items">
+      <entity name="item" transformer="RegexTransformer" query="select item_id as id, title, extra_info as year, category as categories from items">
+        <field column="categories" splitBy="," sourceColName="categories" />
+      </entity>
+    </document>
+</dataConfig>
+
