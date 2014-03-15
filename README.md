@@ -1,10 +1,10 @@
-Recommender_analyzer
+Showcase of recommendations
 ====================
 
 A simple rails app to analyze results of [mahout recommender](http://mahout.apache.org/). 
 In a simple usage of the mahout's recommender, we just have to provide to the tool a file containing at least "user_id,item_id" entries.
 Then, Mahout's recommender generates a file describing the recommendations for each provided user_id. The goal of this application is to 
-visualize the recommendation results easily. Through the recommender analyzer, you can check the user and the recommended items, to check the success of mahout recommendation.
+visualize the recommendation results easily. Through the showcase app, you can check the user and the recommended items, to check the success of mahout recommendation.
 
 The long term goal is to build a generic analyzer, for while, this analyzer is used to explore and validate some experiments performed with the [Netflix Prize base](http://www.netflixprize.com/community/viewtopic.php?pid=9615). In this use case, the analyzer provides the following features:
 
