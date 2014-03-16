@@ -1,4 +1,10 @@
+
 class MovieController < ApplicationController
+  require "open_imdb_client"
+
+  def initialize()
+    @client = ::OpenIMDbClient.new
+  end
 
   def index
   end
@@ -21,24 +27,12 @@ class MovieController < ApplicationController
     raw_items.each do |entry|
       item = Item.find(:first, :conditions => ["item_id = ?", entry.item_id])
       if item.category.nil?
-        item.category = get_genre item.title, item.extra_info
+        item.category = @client.get_genres(item.title, item.extra_info)
         item.save
       end
-      item.category = item.category.downcase
+
       complete_items << item
     end
-  end
-
-  def get_genre title, year
-    response = RestClient.get "http://www.omdbapi.com", {:params => {:t => title, :y => year}}
-    data = JSON.parse(response)
-    category = data["Genre"]
-
-    if category.nil?
-      category = ""
-    end
-
-    category.downcase
   end
 
 end
