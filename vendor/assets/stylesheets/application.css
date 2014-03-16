@@ -1,0 +1,132 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+
+
+ */
+
+/* line 5, ../../app/assets/stylesheets/movie.css.scss */
+span {
+  padding-left: 3px;
+  padding-right: 3px;
+  padding-bottom: 2px;
+}
+
+/* line 9, ../../app/assets/stylesheets/movie.css.scss */
+.action {
+  background-color: yellow;
+}
+
+/* line 10, ../../app/assets/stylesheets/movie.css.scss */
+.comedy {
+  background-color: pink;
+}
+
+/* line 11, ../../app/assets/stylesheets/movie.css.scss */
+.adventure {
+  background-color: orange;
+}
+
+/* line 12, ../../app/assets/stylesheets/movie.css.scss */
+.thriller {
+  background-color: deepSkyBlue;
+}
+
+/* line 13, ../../app/assets/stylesheets/movie.css.scss */
+.mystery {
+  background-color: gray;
+}
+
+/* line 14, ../../app/assets/stylesheets/movie.css.scss */
+.drama {
+  background-color: blue;
+  color: white;
+}
+
+/* line 15, ../../app/assets/stylesheets/movie.css.scss */
+.crime {
+  background-color: red;
+  color: white;
+}
+
+/* line 16, ../../app/assets/stylesheets/movie.css.scss */
+.family {
+  background-color: darkOrchid;
+}
+
+/* line 17, ../../app/assets/stylesheets/movie.css.scss */
+.sport {
+  background-color: black;
+  color: white;
+}
+
+/* line 18, ../../app/assets/stylesheets/movie.css.scss */
+.romance {
+  background-color: deepPink;
+}
+
+/* line 19, ../../app/assets/stylesheets/movie.css.scss */
+.history {
+  background-color: olive;
+}
+
+/* line 20, ../../app/assets/stylesheets/movie.css.scss */
+.biography {
+  background-color: slateBlue;
+}
+
+/* line 21, ../../app/assets/stylesheets/movie.css.scss */
+.sci-fi {
+  background-color: gold;
+}
+
+/* line 22, ../../app/assets/stylesheets/movie.css.scss */
+.fantasy {
+  background-color: darkRed;
+  color: white;
+}
+
+/* line 23, ../../app/assets/stylesheets/movie.css.scss */
+.animation {
+  background-color: aqua;
+}
+
+/* line 24, ../../app/assets/stylesheets/movie.css.scss */
+.western {
+  background-color: yellowGreen;
+}
+
+/* line 25, ../../app/assets/stylesheets/movie.css.scss */
+.music {
+  background-color: navy;
+  color: white;
+}
+
+/* line 26, ../../app/assets/stylesheets/movie.css.scss */
+.musical {
+  background-color: purple;
+  color: white;
+}
+
+/* line 27, ../../app/assets/stylesheets/movie.css.scss */
+.war {
+  background-color: darkSlateGray;
+  color: white;
+}
+
+/* line 28, ../../app/assets/stylesheets/movie.css.scss */
+.horror {
+  background-color: burlyWood;
+}
+
+/* line 30, ../../app/assets/stylesheets/movie.css.scss */
+.title {
+  margin-bottom: -15px;
+}

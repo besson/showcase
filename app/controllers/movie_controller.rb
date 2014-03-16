@@ -1,6 +1,6 @@
+ require "open_imdb_client"
 
 class MovieController < ApplicationController
-  require "open_imdb_client"
 
   def initialize()
     @client = ::OpenIMDbClient.new
